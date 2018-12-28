@@ -1,7 +1,9 @@
 import smtplib
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
-from email.MIMEImage import MIMEImage
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+
 
 # Email you want to send the update from (only works with gmail)
 fromEmail = 'email@gmail.com'
@@ -10,14 +12,14 @@ fromEmail = 'email@gmail.com'
 fromEmailPassword = 'password'
 
 # Email you want to send the update to
-toEmail = 'email2@gmail.com'
+toEmail = 'theatrix.mobile@gmail.com'
 
 def sendEmail(image):
 	msgRoot = MIMEMultipart('related')
-	msgRoot['Subject'] = 'Security Update'
+	msgRoot['Subject'] = 'Security Alert'
 	msgRoot['From'] = fromEmail
 	msgRoot['To'] = toEmail
-	msgRoot.preamble = 'Raspberry pi security camera update'
+	msgRoot.preamble = 'Smart security camera update'
 
 	msgAlternative = MIMEMultipart('alternative')
 	msgRoot.attach(msgAlternative)
